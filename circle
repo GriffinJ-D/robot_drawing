@@ -26,7 +26,7 @@ if __name__ == "__main__":
             print(f"TIMEOUT: Failed to enable joints!")
             break
 
-    piper.MotionCtrl_2(0x01, 0x00, 10,
+    piper.MotionCtrl_2(0x01, 0x00, 1,
                        0x00)  # ctrl_mode: can command control mode, move_mode: move p, move_spd_rate_ctrl: 100, is_mit_mode: position-velocity mode
     time.sleep(1)
     piper.GripperCtrl(0, 1000, 0x01,
@@ -52,7 +52,7 @@ if __name__ == "__main__":
             y = CY + R * math.sin(theta)
 
             # keep your Z/orientation/gripper values
-            position = [x, y, 130, 0, 170, 0, 0]
+            position = [x, y, 130, 0, 180, 0, 0]
 
             # (unchanged) scale + send
             X = round(position[0] * factor)
@@ -67,7 +67,7 @@ if __name__ == "__main__":
             piper.GripperCtrl(abs(joint_6), 1000, 0x01, 0)
 
             # smoother motion than 1.5s; start with ~30–50ms
-            time.sleep(0.03)
+            time.sleep(0.3)
     finally:
         print("\n\n---- Returning to the home position and exiting application in 2 secomds, goodbye ----\n\n")
         piper.EndPoseCtrl(57, 0, 215, 0, 90, 0, 0)
