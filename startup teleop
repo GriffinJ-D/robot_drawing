@@ -1,0 +1,2 @@
+griffin@arm-XPS-8960:~/agilex$ uv run python3 teleop_recorder/piper_teleop.py --leader /dev/right_leader --follower can_right_arm
+uv run python3 teleop_recorder/piper_teleop.py --leader /dev/left_leader --follower can_left_arm --gripper-inverted
